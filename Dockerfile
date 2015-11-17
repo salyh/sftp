@@ -6,6 +6,8 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server && \
     rm -rf /var/lib/apt/lists/*
 
+RUN echo "root:root" | chpasswd
+
 # sshd needs this directory to run
 RUN mkdir -p /var/run/sshd
 
